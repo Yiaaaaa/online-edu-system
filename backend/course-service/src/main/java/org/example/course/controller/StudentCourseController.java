@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/courses")
-public class CourseController {
+@RequestMapping("/api/student/courses")
+public class StudentCourseController {
+    // 学生端专用接口（如选课、查看课程）
     @Autowired
     private CourseService courseService;
 

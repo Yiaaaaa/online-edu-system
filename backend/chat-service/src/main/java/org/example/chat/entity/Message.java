@@ -16,6 +16,7 @@ public class Message {
     private String senderId;
     private String content;
     private LocalDateTime timestamp;  // 新增字段
+    private boolean isResolved;  // 新增字段：是否已解决
 
     // Getter & Setter
     public LocalDateTime getTimestamp() {
@@ -25,4 +26,11 @@ public class Message {
     public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
+    // Getter 和 Setter 方法
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
+    public String getCourseId() { return courseId; }
+    public void setCourseId(String courseId) { this.courseId = courseId; }
+    public boolean isResolved() { return isResolved; }
+    public void setResolved(boolean resolved) { isResolved = resolved; }
 }

@@ -3,6 +3,8 @@ package org.example.course.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Course {
     @Id
@@ -12,6 +14,12 @@ public class Course {
     private double price;
     private String category;
     private boolean isPaid;
+    private boolean isPublished; // 是否已发布
+    private String videoPath;    // 视频存储路径
+    private String materialsPath; // 课件存储路径
+    private LocalDateTime startTime;  // 新增字段：开课时间
+    private String teacherId;         // 新增字段：教师ID
+    private LocalDateTime homeworkDeadline; // 作业截止时间
 
     // 默认构造方法（JPA 需要）
     public Course() {}
@@ -24,6 +32,7 @@ public class Course {
         this.price = price;
         this.category = category;
         this.isPaid = isPaid;
+
     }
 
     // Getter 和 Setter 方法
@@ -39,4 +48,20 @@ public class Course {
     public void setCategory(String category) { this.category = category; }
     public boolean isPaid() { return isPaid; }
     public void setPaid(boolean paid) { isPaid = paid; }
+    public LocalDateTime getStartTime() { return startTime; }
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+
+    public String getTeacherId() { return teacherId; }
+    public void setTeacherId(String teacherId) { this.teacherId = teacherId; }
+    public boolean isPublished() { return isPublished; }
+    public void setPublished(boolean published) { isPublished = published; }
+    // Getter 方法
+    public LocalDateTime getHomeworkDeadline() {
+        return homeworkDeadline;
+    }
+
+    // Setter 方法（可选）
+    public void setHomeworkDeadline(LocalDateTime homeworkDeadline) {
+        this.homeworkDeadline = homeworkDeadline;
+    }
 }
