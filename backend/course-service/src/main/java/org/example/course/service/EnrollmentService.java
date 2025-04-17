@@ -1,3 +1,13 @@
+package org.example.course.service;
+
+import org.example.course.client.PaymentServiceClient;
+import org.example.course.model.Course;
+import org.example.course.model.Enrollment;
+import org.example.course.repository.CourseRepository;
+import org.example.course.repository.EnrollmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 @Service
 public class EnrollmentService {
     @Autowired

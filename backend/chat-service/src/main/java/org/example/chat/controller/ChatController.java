@@ -1,6 +1,8 @@
-package org.example.chat;
+package org.example.chat.controller;
 
-import org.apache.kafka.common.protocol.Message;
+
+import org.example.chat.entity.Message;
+import org.example.chat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.messaging.handler.annotation.DestinationVariable;
@@ -23,13 +25,13 @@ public class ChatController {
     public Message sendMessage(
             @DestinationVariable String courseId,
             @Payload Message message,
-            Principal principal) {
+            Principal principal) throws AccessDeniedException {
         // 验证用户是否属于该课程
         if (!chatService.isUserInCourse(principal.getName(), courseId)) {
             throw new AccessDeniedException("无权限发送消息");
         }
         message.setTimestamp(LocalDateTime.now());
-        chatService.saveMessage(message);
+        chatService.saveMessage((Message) message);
         return message;
     }
 }
