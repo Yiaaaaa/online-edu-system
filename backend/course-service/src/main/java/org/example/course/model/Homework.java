@@ -15,7 +15,9 @@ public class Homework {
     private String filePath;      // 文件存储路径
     private LocalDateTime submitTime;
     private String status;       // 状态：待批改、已评分
-
+    private Integer score;       // 包装类型允许null
+    private String feedback;
+    private boolean isGraded;   // 必须与setGraded方法匹配
     // Getter 和 Setter 方法
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
@@ -29,4 +31,16 @@ public class Homework {
     public void setSubmitTime(LocalDateTime submitTime) { this.submitTime = submitTime; }
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+    // 添加Setter方法（必须为public）
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public void setGraded(boolean graded) {
+        isGraded = graded;
+    }
 }
